@@ -40,6 +40,6 @@ test.each([
   {a: 'Mari na',  expected: false},
   {a: '      ',  expected: false},
   {a: '&#',  expected: true},
-])('.add($a)', ({a, expected}) => {
+])('add.($a)', ({a, expected}) => {
   expect(nameIsValid(a)).toBe(expected);
 });
