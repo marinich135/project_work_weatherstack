@@ -45,7 +45,7 @@ describe('Отправляем http запросы', () => {
     expect(response.status).toEqual(200);
   });
 
-  test('Сохранить любимый аэропорт post  /favorites', async () => {
+  test('Сохранить любимый аэропорт post /favorites', async () => {
     const path = 'api/favorites?';
     const params = new URLSearchParams(
         {
