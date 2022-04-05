@@ -21,7 +21,7 @@ describe('ДЗ 4', () => {
     { a: 'Волк', expected: 'Я от волка ушёл' },
     { a: 'Медведь', expected: 'Я от медведя ушёл' },
     { a: 'Лиса', expected: 'Лиса его, ам, и съела' },
-    { a: 'Чушь', expected: 'Нет таких героев' },
+    { a: 'Чушь', expected: 'Нет таких героев!' },
   ])('$a', ({ a, expected}) => {
     expect(kolobok(a)).toEqual(expected);
   });

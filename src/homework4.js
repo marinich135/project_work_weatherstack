@@ -13,7 +13,7 @@ export const kolobok = (a) => {
     case 'Лиса':
       return 'Лиса его, ам, и съела';
     default:
-      return 'Нет таких героев';
+      return 'Нет таких героев!';
   }
 };
 export const NoviiyGod = (name) => {
