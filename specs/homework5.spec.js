@@ -15,7 +15,6 @@ describe('Отправляем http запросы', () => {
     const info = await response.json();
     console.log(info);
     expect(info.data.attributes.city).toEqual('Osaka');
-    // expect(response.status).toEqual(200);
   });
 
   test('Получить расстояние между двумя заданными аэропортами post  /airports/distance 200', async () => {
@@ -25,9 +24,6 @@ describe('Отправляем http запросы', () => {
       to: 'KIX',
     };
     const response = await fetch(URL + path, { method: 'POST', body: JSON.stringify(iatacode) });
-    /* console.log(response);
-    const data = await response.json();
-    console.log(data); */
     expect(response.status)
       .toEqual(200);
   });
@@ -38,44 +34,38 @@ describe('Отправляем http запросы', () => {
       email: 'test@airportgap.com',
       password: 'airportgappassword',
     };
-  const response = await fetch(URL + path, { method: 'POST', body: JSON.stringify(credentials) });
-    /*console.log(response);
-    const data = await response.json();
-    console.log(data);*/
+    const response = await fetch(URL + path, { method: 'POST', body: JSON.stringify(credentials) });
     expect(response.status).toEqual(200);
   });
 
+  const BearerToken = '9WHkBEdbYYYzDSoMkV9UjZjh';
   test('Сохранить любимый аэропорт post /favorites', async () => {
     const path = 'api/favorites?';
     const params = new URLSearchParams(
-        {
-          airport_id: "JFK"
-        },
+      {
+        airport_id: 'JFK',
+      },
     );
     const response = await fetch(URL + path + params, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        Authorization:'Bearer token=9WHkBEdbYYYzDSoMkV9UjZjh'
-      }
+        Authorization: `Bearer token=${BearerToken}`,
+      },
     });
     expect(response.status).toEqual(201);
-
   });
 
   test('Получить любимые аэропорты get  /favorites', async () => {
     const path = 'api/favorites';
 
-    const response = await fetch(URL + path , {
+    const response = await fetch(URL + path, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-        Authorization:'Bearer token=9WHkBEdbYYYzDSoMkV9UjZjh'
-      }
+        Authorization: `Bearer token=${BearerToken}`,
+      },
     });
     expect(response.status).toEqual(200);
-
   });
-
-
 });
