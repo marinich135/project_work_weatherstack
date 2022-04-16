@@ -22,6 +22,20 @@ describe('Тестируем sumOfGrades функцию', () => {
     const result = 1;
     expect(sumOfGrades(obj2)).toBe(result);
   });
+  test('есть оценка, написанная текстом ', () => {
+    const obj2 = {
+      Anna: 'хорошо',
+    };
+    const result = 'Оценка может быть только числом';
+    expect(sumOfGrades(obj2)).toBe(result);
+  });
+  test('есть отрицательная оценка ', () => {
+    const obj2 = {
+      Anna: -5,
+    };
+    const result = 'Оценка может быть только не отрицательным числом';
+    expect(sumOfGrades(obj2)).toBe(result);
+  });
   test('нет оценок', () => {
     const obj2 = {
       Anna: 0,
