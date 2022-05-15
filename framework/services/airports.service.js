@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import urls from '../config/urls';
+import headers from '../config/headers';
 
 const Airports = {
   get: async () => {
@@ -10,61 +11,18 @@ const Airports = {
     const r = await fetch(`${urls.airport}api/airports/KIX`, { method: 'GET' });
     return r;
   },
-  postToken: async () => {
-    const r = await fetch(`${urls.airport}api/tokens`, { method: 'POST' /* , body: JSON.stringify(credentials) */ });
-    return r;
-  },
-  postDistanceBetweenAirports: async (Auth, from, to) => {
+
+  postDistanceBetweenAirports: async (from, to) => {
     const params = new URLSearchParams(
       {
         from,
         to,
       },
     );
-    const r = await fetch(`${urls.airport}api/airports/distance?${params}`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        Authentication: Auth,
-      },
-    });
+    const r = await fetch(`${urls.airport}api/airports/distance?${params}`, { method: 'POST', headers });
     return r;
   },
-  saveFavorites: async (BearerToken, id) => {
-    const params = new URLSearchParams(
-      {
-        airport_id: id,
-      },
-    );
-    const r = await fetch(`${urls.airport}api/favorites?${params}`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer token=${BearerToken}`,
-      },
-    });
-    return r;
-  },
-  getFavorites: async (BearerToken) => {
-    const r = await fetch(`${urls.airport}api/favorites`, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer token=${BearerToken}`,
-      },
-    });
-    return r;
-  },
-  deleteAllFavorites: async (BearerToken) => {
-    const r = await fetch(`${urls.airport}api/favorites/clear_all`, {
-      method: 'DELETE',
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer token=${BearerToken}`,
-      },
-    });
-    return r;
-  },
+
 };
 
 export default Airports;
