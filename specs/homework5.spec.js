@@ -15,7 +15,6 @@ describe('Отправляем http запросы', () => {
     const info = await response.json();
     console.log(info);
     expect(info.data.attributes.city).toEqual('Osaka');
-    // expect(response.status).toEqual(200);
   });
 
   test('Получить расстояние между двумя заданными аэропортами post  /airports/distance 200', async () => {
@@ -25,9 +24,6 @@ describe('Отправляем http запросы', () => {
       to: 'KIX',
     };
     const response = await fetch(URL + path, { method: 'POST', body: JSON.stringify(iatacode) });
-    /* console.log(response);
-    const data = await response.json();
-    console.log(data); */
     expect(response.status)
       .toEqual(200);
   });
@@ -42,7 +38,8 @@ describe('Отправляем http запросы', () => {
     expect(response.status).toEqual(200);
   });
 
-  test('Сохранить любимый аэропорт post  /favorites', async () => {
+  const BearerToken = '9WHkBEdbYYYzDSoMkV9UjZjh';
+  test('Сохранить любимый аэропорт post /favorites', async () => {
     const path = 'api/favorites?';
     const params = new URLSearchParams(
       {
@@ -53,7 +50,9 @@ describe('Отправляем http запросы', () => {
       method: 'POST',
       headers: {
         Accept: 'application/json',
+
         Authorization: 'Bearer token=9WHkBEdbYYYzDSoMkV9UjZjh',
+
       },
     });
     expect(response.status).toEqual(201);
@@ -66,7 +65,9 @@ describe('Отправляем http запросы', () => {
       method: 'GET',
       headers: {
         Accept: 'application/json',
+
         Authorization: 'Bearer token=9WHkBEdbYYYzDSoMkV9UjZjh',
+
       },
     });
     expect(response.status).toEqual(200);
