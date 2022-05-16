@@ -7,8 +7,8 @@ const Airports = {
     const r = await fetch(`${urls.airport}api/airports`, { method: 'GET' });
     return r;
   },
-  getById: async () => {
-    const r = await fetch(`${urls.airport}api/airports/KIX`, { method: 'GET' });
+  getById: async (airId) => {
+    const r = await fetch(`${urls.airport}api/airports/${airId}`, { method: 'GET' });
     return r;
   },
 

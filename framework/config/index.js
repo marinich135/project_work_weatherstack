@@ -1,4 +1,5 @@
 import urls from './urls';
+import headers from './headers';
+import cred from './cred';
 
-export default urls;
-
+export { urls, headers, cred };
