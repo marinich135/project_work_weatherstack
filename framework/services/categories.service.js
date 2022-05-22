@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import urls from '../framework/config';
+import urls from '../config';
 
 const Categories = {
   getAllCategories: async () => {
