@@ -15,6 +15,7 @@ describe('Получаем информацию о породах котов', (
     const response = await api().Categories().getAllCategories();
     expect(response.status)
       .toEqual(200);
+
   });
 
 });
