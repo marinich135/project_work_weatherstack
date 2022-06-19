@@ -50,7 +50,9 @@ describe('Отправляем http запросы', () => {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer token=${BearerToken}`,
+
+        Authorization: 'Bearer token=9WHkBEdbYYYzDSoMkV9UjZjh',
+
       },
     });
     expect(response.status).toEqual(201);
@@ -63,7 +65,9 @@ describe('Отправляем http запросы', () => {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer token=${BearerToken}`,
+
+        Authorization: 'Bearer token=9WHkBEdbYYYzDSoMkV9UjZjh',
+
       },
     });
     expect(response.status).toEqual(200);
