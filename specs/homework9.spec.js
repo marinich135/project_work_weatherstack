@@ -16,4 +16,5 @@ describe('Получаем информацию о породах котов', (
     expect(response.status)
       .toEqual(200);
   });
+
 });
