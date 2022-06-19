@@ -1,6 +1,5 @@
 import fetch from 'node-fetch';
-import urls from '../config/urls';
-import headers from '../config/headers';
+import { urls, headers } from '../config/index';
 
 const Airports = {
   get: async () => {

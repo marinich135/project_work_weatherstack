@@ -1,6 +1,5 @@
 import fetch from 'node-fetch';
-import urls from '../config/urls';
-import cred from '../config/cred';
+import { urls, cred } from '../config/index';
 
 const Tokens = {
   postToken: async () => {
