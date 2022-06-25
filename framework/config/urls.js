@@ -1,4 +1,4 @@
 const urls = {
-  cats: 'https://api.thecatapi.com/',
+  weather: 'http://api.weatherstack.com/',
 };
 export default urls;

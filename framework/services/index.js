@@ -1,9 +1,9 @@
-import Breeds from './breeds.service';
-import Categories from './categories.service';
+import Current from './current.service';
+import Autocomplete from './autocomplete.service';
 
 const api = () => ({
-  Breeds: () => ({ ...Breeds }),
-  Categories: () => ({ ...Categories }),
+  Current: () => ({ ...Current }),
+  Autocomplete: () => ({ ...Autocomplete }),
 
 });
 
