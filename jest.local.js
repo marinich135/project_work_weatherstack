@@ -12,7 +12,10 @@ module.exports = {
   },
   reporters: [
     'default',
-    'jest-html-reporters',
+    'jest-html-reporters', {
+      filename: 'report.html',
+      openReport: true,
+    },
   ],
   verbose: true,
 };
