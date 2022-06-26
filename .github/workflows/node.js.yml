@@ -1,4 +1,5 @@
 name: Weatherstack api tests
+
 on:
   push:
     branches: [ "main" ]
