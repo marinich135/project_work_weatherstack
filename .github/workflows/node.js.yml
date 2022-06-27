@@ -1,4 +1,4 @@
-name: Weatherstack api tests1
+name: Weatherstack api tests
 
 on:
   push:
