@@ -1,8 +1,7 @@
 import api from '../framework/services/index';
 import authorization from '../framework/config/accessKey';
 
-
-describe('Отправляем http запросы', () => {
+describe('API тесты ', () => {
   test('Получить текущую погоду для какого-то города  get /current 200', async () => {
     const response = await api().Current().getCurrentWeather(authorization.accessKeyAPI, 'Washington');
     expect(response.status)
@@ -10,13 +9,13 @@ describe('Отправляем http запросы', () => {
   });
 
   test('Проверить, что текущая погода возвращается для корректного города get /current 200', async () => {
-    const response = await api().Current().getCurrentWeather(authorization.accessKeyAPI, 'Washington');
+    const response = await api().Current().getCurrentWeather(authorization.accessKeyAPI, 'London');
     const json = await response.json();
-    expect(json.location.name).toEqual('Washington');
+    expect(json.location.name).toEqual('London');
   });
 
   test('Получить текущую погоду для какого-то города с неверным access_key  get /current 200', async () => {
-    const response = await api().Current().getCurrentWeather('Washington');
+    const response = await api().Current().getCurrentWeather('London', 'London');
     const json = await response.json();
     expect(json.error.code).toEqual(101);
     expect(json.error.type).toEqual('invalid_access_key');
